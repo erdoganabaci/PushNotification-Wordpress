@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "943157391847",
+    "firebase_url": "https://osman-ozet-web-site.firebaseio.com",
+    "project_id": "osman-ozet-web-site",
+    "storage_bucket": "osman-ozet-web-site.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943157391847:android:ddf2cc1f2d7a261c",
+        "android_client_info": {
+          "package_name": "webfirmam.app.osmanozetwebapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "943157391847-4n34f1kuljrc209truuvgfak3qi4gbb4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYlExQMuNl6Dx6IJYC6Vtr6Fh6YYHINsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "943157391847-4n34f1kuljrc209truuvgfak3qi4gbb4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
