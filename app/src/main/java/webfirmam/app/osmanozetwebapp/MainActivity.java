@@ -2,6 +2,7 @@ package webfirmam.app.osmanozetwebapp;
 
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -49,41 +50,52 @@ public class MainActivity extends AppCompatActivity {
         webView.loadUrl(Url);
         //handler ile thread kullanarak zamanı yakalıyoruz
 
-        final DownloadData downloadData = new DownloadData();
-
-        try {
-            //aşağıdaki asynctaskin stringine parametre geçirmeye yarıyor
-            final String url = "http://osmanozet.webfirmam.com.tr/appconfig/getpost.php";
-            //her saniye execute et
 
 
-            Runnable runnable = new Runnable() {
 
-                @Override
-                public void run() {
-                    try{
-                        downloadData.execute(url);
 
-                        Toast.makeText(getApplicationContext(),"Calısıyor ..",Toast.LENGTH_LONG).show();
+         handler = new Handler();
+        Timer timer = new Timer();
+
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    public void run() {
+                        try {
+                            final DownloadData downloadData = new DownloadData();
+
+                            try {
+                                //aşağıdaki asynctaskin stringine parametre geçirmeye yarıyor
+                                final String url = "http://osmanozet.webfirmam.com.tr/appconfig/getpost.php";
+                                //her saniye execute et
+
+
+
+                                // Create the Handler object (on the main thread by default)
+                                // Define the code block to be executed
+
+                                // Do something here on the main thread
+                                downloadData.execute(url);
+
+                                Toast.makeText(getApplicationContext(),"Calısıyor ..",Toast.LENGTH_LONG).show();
+                                // Repeat this the same runnable code block again another 2 seconds
+
+
+
+                            } catch (Exception e) {
+                                System.out.println("Api not respond maybe site down");
+                            }
+
+                        } catch (Exception e) {
+                            // error, do something
+                        }
                     }
-                    catch (Exception e) {
+                });
+            }
+        };
 
-                    }
-                    finally{
-                        //also call the same runnable to call it at regular interval
-                        handler.postDelayed(this, 3000);
-                    }
-                }
-            };
-            handler.postDelayed(runnable, 3000);
-
-
-
-        } catch (Exception e) {
-            System.out.println("Api not respond maybe site down");
-        }
-
-
+        timer.schedule(task, 0, 5*1000);  // interval of one minute
 
 
     }
@@ -147,6 +159,9 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
+
+
 
 
 }
