@@ -1,6 +1,7 @@
 package webfirmam.app.osmanozetwebapp;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -49,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
         webView.setWebViewClient(webViewClient); //oluşturduğumuz webViewClient objesini webViewımıza set ediyoruz
         webView.loadUrl(Url);
         //handler ile thread kullanarak zamanı yakalıyoruz
+        //servisi başlat manifeste tanımlamayı unutma aksi halde başlamaz.
+        startService(new Intent(this,MyService.class));
 
 
-
-
-
+/*
          handler = new Handler();
         Timer timer = new Timer();
 
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         timer.schedule(task, 0, 5*1000);  // interval of one minute
-
+*/
 
     }
 

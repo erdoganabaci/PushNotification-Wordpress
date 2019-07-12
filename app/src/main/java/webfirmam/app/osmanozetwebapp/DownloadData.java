@@ -209,7 +209,7 @@ class DownloadData extends AsyncTask<String, Void, String> {
                 public void idsAvailable(String userId, String registrationId) {
                     try {
 
-                       // OneSignal.postNotification(new JSONObject(String.valueOf("{'headings':{'en':'"+finalPageTitle+"'},'contents': {'en':'Test Message'}, 'include_player_ids': ['" + userId + "']}")), null);
+                       //OneSignal.postNotification(new JSONObject(String.valueOf("{'headings':{'en':'"+finalPageTitle+"'},'contents': {'en':'Test Message'}, 'include_player_ids': ['" + userId + "']}")), null);
                          OneSignal.postNotification(new JSONObject(String.valueOf("{'headings':{'en':'"+finalPageTitle+"'},'contents': {'en':'"+finalPageSubTitle+"'}, 'include_player_ids': ['" + userId + "']}")), null);
 
                     } catch (JSONException e) {
